@@ -11,24 +11,6 @@ import Link from "next/link";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-
-
-// i18next.init({
-//   lng: "en", // if you're using a language detector, do not define the lng option
-//   debug: true,
-//   resources: {
-//     en: {
-//       translation: {
-//         key: "hello world",
-//       },
-//     },
-//   },
-// });
-// initialized and ready to go!
-// i18next is already initialized, because the translation resources where passed via init function
-// document.getElementById("output").innerHTML = i18next.t("key");
-
-
 // import de from "../locales/de/requests";
 // import en from "../locales/en/requests";
 
@@ -40,53 +22,27 @@ import { useTranslation } from "next-i18next";
 export default function Generate() {
 
   let router = useRouter();
+  const { query } = useRouter();
 
   // const { locale } = router;
   // const t = locale === "en" ? en : de;
 
-  // console.log(locale);
-
-  // const query = router.query;
-
-  // let fullName = query.name;
-  // const means = query.means;
-  // const request = query.request;
-
-  // console.log(query);
-
-  const { query } = useRouter();
+  const { locale } = router;
 
   const [fullName, setFullName] = useState(query.usersFullName);
   const [means, setMeans] = useState(query.usersMeans);
   const [request, setRequest] = useState(query.usersRequest);
+  // const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
+
+  console.log(request);
 
 
+  //  console.log("query::", query);
+  //  console.log("entity key:-", query.usersFullName);
 
-    //  console.log("query::", query);
-    //  console.log("entity key:-", query.usersFullName);
+  // const { t } = useTranslation(request);
+  const { t } = useTranslation("Right to Access Personal Data");
 
-
-
-
-
-
-  // fullName = 'tarik';
-
-  // console.log(fullName);
-
-  // console.log(fullName);
-
-  const { t } = useTranslation();
-
-
-
-  // console.log(t("title", { name: "tarik" }));
-  // t("title", { name: "tarik" })
-
-
-
-
-  const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
 
   return (
     <>

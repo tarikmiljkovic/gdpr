@@ -24,40 +24,11 @@ export default function Home() {
     const { locale } = router;
     // const t = locale === "de" ? de : en;
 
-
     const [fullName, setFullName] = useState("");
     const [means, setMeans] = useState("");
     const [request, setRequest] = useState("");
-    // const context = useContext(SiteContext);
-
-
-      const handleFullName = (e) => {
-        e.preventDefault();
-        setFullName(e.target.value);
-      };
-
-
-    // const [data, setData] = useState({
-    //   name: "",
-    //   means: "",
-    //   request: "",
-    // });
-
-    // console.log(firstName.current);
 
     console.log(fullName, means, request);
-
-
-
-
-
-
-
-
-
-
-
-
 
     const names = [
       "Right to Rectification",
