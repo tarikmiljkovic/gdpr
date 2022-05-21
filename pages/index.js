@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
+import React, { useRef } from "react";
 import { useEffect, useContext, useState } from "react";
 
 import Link from "next/link";
@@ -9,11 +9,12 @@ import { useRouter } from "next/router";
 import Footer from '../components/Footer';
 import Terms from '../components/Terms';
 
-import de from "../locales/de";
-import en from "../locales/en";
+// import de from "../locales/de/requests";
+// import en from "../locales/en/requests";
 
 
 import { SiteContext } from "../contexts/SiteContext";
+import { data } from "autoprefixer";
 
 
 export default function Home() {
@@ -21,12 +22,46 @@ export default function Home() {
   let router = useRouter();
 
     const { locale } = router;
-    const t = locale === "de" ? de : en;
+    // const t = locale === "de" ? de : en;
+
+
+    const [fullName, setFullName] = useState("");
+    const [means, setMeans] = useState("");
+    const [request, setRequest] = useState("");
+    // const context = useContext(SiteContext);
+
+
+      const handleFullName = (e) => {
+        e.preventDefault();
+        setFullName(e.target.value);
+      };
+
+
+    // const [data, setData] = useState({
+    //   name: "",
+    //   means: "",
+    //   request: "",
+    // });
+
+    // console.log(firstName.current);
+
+    console.log(fullName, means, request);
+
+
+
+
+
+
+
+
+
+
+
+
 
     const names = [
       "Right to Rectification",
       "Right to Access Personal Data",
-      "Right to Rectification",
       "Right to Restrict Data Processing",
       "Right to Object",
       "Right to Data Portability",
@@ -81,9 +116,11 @@ export default function Home() {
                       <input
                         id="nameSurename"
                         name="nameSurename"
+                        value={data.fullName}
+                        onChange={(event) => setFullName(event.target.value)}
                         type="name"
                         autoComplete="input"
-                        required
+                        // required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                     </div>
@@ -101,8 +138,10 @@ export default function Home() {
                         id="text"
                         name="text"
                         type="text"
+                        value={data.means}
+                        onChange={(event) => setMeans(event.target.value)}
                         autoComplete="current-password"
-                        required
+                        // required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                     </div>
@@ -119,15 +158,12 @@ export default function Home() {
                       id="location"
                       name="location"
                       className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-                      defaultValue="Canada"
+                      value={data.request}
+                      onChange={(event) => setRequest(event.target.value)}
                     >
-
-                        {names.map((name) => (
-                          <option>{name}</option>
-                        ))}
-
-
-
+                      {names.map((name) => (
+                        <option key={name}>{name}</option>
+                      ))}
                     </select>
                   </div>
 
@@ -137,7 +173,19 @@ export default function Home() {
                       type="submit"
                       className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
-                      <Link href="/generate">
+                      <Link
+                        href={{
+                          pathname: "/generate",
+                          query: {
+                            usersFullName: fullName,
+                            usersMeans: means,
+                            usersRequest: request,
+                          },
+
+                          // pathname: "/blog/[slug]",
+                          // query: { slug: "my-post" },
+                        }}
+                      >
                         <a>Create Document</a>
                       </Link>
                     </button>

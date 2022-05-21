@@ -7,11 +7,11 @@ import { useRouter } from "next/router";
 import de from "../locales/de";
 import en from "../locales/en";
 
-function LangSwitcher({ requestJ, currentProjectIndex }) {
+function LangSwitcher() {
   let router = useRouter();
 
   const { locale } = router;
-  const t = locale === "de" ? de : en;
+  // const t = locale === "de" ? de : en;
 
   return (
     <div>

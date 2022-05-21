@@ -1,25 +1,90 @@
 const { API_URL } = process.env;
 
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import LangSwitcher from '../components/LangSwitcher';
 import { SiteContext } from "../contexts/SiteContext";
 import React from 'react';
+import Link from "next/link";
 
-import de from "../locales/de";
-import en from "../locales/en";
+// import i18next from "i18next";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+
+
+// i18next.init({
+//   lng: "en", // if you're using a language detector, do not define the lng option
+//   debug: true,
+//   resources: {
+//     en: {
+//       translation: {
+//         key: "hello world",
+//       },
+//     },
+//   },
+// });
+// initialized and ready to go!
+// i18next is already initialized, because the translation resources where passed via init function
+// document.getElementById("output").innerHTML = i18next.t("key");
+
+
+// import de from "../locales/de/requests";
+// import en from "../locales/en/requests";
 
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
-export default function Generate({ result }) {
+import { useTranslation } from "next-i18next";
+
+export default function Generate() {
 
   let router = useRouter();
 
-  const { locale } = router;
-  const t = locale === "en" ? en : de;
+  // const { locale } = router;
+  // const t = locale === "en" ? en : de;
 
-  console.log(t);
+  // console.log(locale);
+
+  // const query = router.query;
+
+  // let fullName = query.name;
+  // const means = query.means;
+  // const request = query.request;
+
+  // console.log(query);
+
+  const { query } = useRouter();
+
+  const [fullName, setFullName] = useState(query.usersFullName);
+  const [means, setMeans] = useState(query.usersMeans);
+  const [request, setRequest] = useState(query.usersRequest);
+
+
+
+    //  console.log("query::", query);
+    //  console.log("entity key:-", query.usersFullName);
+
+
+
+
+
+
+  // fullName = 'tarik';
+
+  // console.log(fullName);
+
+  // console.log(fullName);
+
+  const { t } = useTranslation();
+
+
+
+  // console.log(t("title", { name: "tarik" }));
+  // t("title", { name: "tarik" })
+
+
+
 
   const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
 
@@ -33,15 +98,15 @@ export default function Generate({ result }) {
           <div className="text-lg max-w-prose mx-auto">
             <h1>
               <span className="block text-base text-center text-blue-600 font-semibold tracking-wide uppercase">
-                § 10 b
+                {/* {request} */}
               </span>
               <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                {t.title}
+                {t("title", {name: fullName})}
               </span>
             </h1>
           </div>
           <div className="mt-6 prose prose-blue prose-lg text-gray-500 mx-auto">
-            <p ref={ref}>{t.request}</p>
+            <p>{t("request", { name: fullName })}</p>
             {/* <h2>Everything you need to get up and running</h2> */}
           </div>
         </div>
@@ -51,7 +116,11 @@ export default function Generate({ result }) {
           <div className="bg-white">
             <div className="px-0 py-5 ">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
-                Create Document
+                <Link href="">
+                  <a onClick={() => setUserInformation("0vh")}>
+                    Create Document
+                  </a>
+                </Link>
               </h3>
               <div className="mt-2 sm:flex sm:items-start sm:justify-between">
                 <div className="max-w-xl text-sm text-gray-500">
@@ -83,19 +152,20 @@ export default function Generate({ result }) {
   );
 }
 
-// export async function getStaticProps(context) {
-//   // set context locale, default.
 
-//   // console.log(context.locale);
-
-//   // const res = await fetch(
-//   //   context.locale == "bs"
-//   //     ? `${API_URL}/o-nama`
-//   //     : `${API_URL}/o-nama?_locale=en`
-//   // );
-//   // const result = await res.json();
-
-//   return {
-//     props: { result },
-//   };
-// }
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "Right to Object",
+        "Right to Access Personal Data",
+        "Right to Data Portability",
+        "Right to Rectification",
+        "Right to Reject Automated Individual Decision-Making",
+        "Right to Restrict Data Processing",
+      ])),
+      // Will be passed to the page component as props
+    },
+  };
+}

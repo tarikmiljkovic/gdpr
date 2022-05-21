@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 
 import { SiteProvider } from "../contexts/SiteContext";
+import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }) {
   return <>
@@ -10,4 +11,4 @@ function MyApp({ Component, pageProps }) {
   </>;
 }
 
-export default MyApp
+export default appWithTranslation(MyApp);

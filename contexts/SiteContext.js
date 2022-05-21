@@ -1,22 +1,17 @@
 import { createContext, useState } from "react";
+import React, {useRef} from "react";
 
 const SiteContext = createContext();
 
 const SiteProvider = ({ children }) => {
 
-  const [pageTranslate, setPageTranslate] = useState("0vh");
-  const [pageTranslateSecond, setPageTranslateSecond] = useState("0vh");
-  const [carouselState, mutateCarousel] = useState(true);
-  const [typeOfRequest, setTypeOfRequest] = useState(1);
-
-  const [category, setCategory] = useState("svi");
+  const [fullName, setFullName] = useState("");
+  const [means, setMeans] = useState("");
+  const [request, setRequest] = useState("");
 
   return (
     <SiteContext.Provider
-      value={{
-        typeOfRequest,
-        setTypeOfRequest,
-      }}
+      value={{fullName, setFullName, means, setMeans, request, setRequest}}
     >
       {children}
     </SiteContext.Provider>
