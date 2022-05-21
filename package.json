@@ -1,0 +1,25 @@
+{
+  "name": "itlaw",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "faker": "^6.6.6",
+    "jspdf": "^2.5.1",
+    "next": "12.1.6",
+    "next-i18next": "^11.0.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-to-pdf": "0.0.14"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.13",
+    "tailwindcss": "^3.0.24"
+  }
+}
