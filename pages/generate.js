@@ -36,6 +36,15 @@ const ref = React.createRef();
 import { useTranslation } from "next-i18next";
 
 export default function Generate() {
+
+
+  const reference = useRef("");
+
+
+
+  const [element, setElement] = useState("");
+
+
   const ref = useRef(null);
   const myElement = useRef(null);
 
@@ -62,7 +71,7 @@ export default function Generate() {
   const { locale } = router;
 
   const [fullName, setFullName] = useState(query.usersFullName);
-  const [means, setMeans] = useState(query.usersMeans);
+  let [means, setMeans] = useState(query.usersMeans);
   const [request, setRequest] = useState(query.usersRequest);
   // const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
 
@@ -78,13 +87,17 @@ export default function Generate() {
     page: {
       backgroundColor: "white",
 
-      fontSize: 10,
+      fontSize: 11,
       padding: 30,
     },
-    section: { color: "black", marginBottom: 10 },
+    section: { color: "black", marginBottom: 30 },
+    bold: { fontWeight: "700"},
   });
 
-  let address = 'facebook inc';
+  let address = `epunkt GmbH
+  Universitätsring 8,
+  1010 Wien`;
+  means = "A26187G";
 
 
   const MyDocument = () => (
@@ -94,19 +107,21 @@ export default function Generate() {
           <Text>Reference: {t("title")}</Text>
         </View>
         <View style={styles.section}>
-          <Text>Dear: {address}</Text>
+          <Text>Dear:</Text>
+          <Text style={styles.bold}>{address}</Text>
         </View>
         <View style={styles.section}>
           <Text>{t("request", { name: fullName })}</Text>
         </View>
-
         <View style={styles.section}>
           <Text>Also I would like to add:</Text>
-          <Text>Text..</Text>
+
+          <Text>{element}</Text>
         </View>
         <View style={styles.section}>
           <Text>Kind Regards</Text>
           <Text>Tarik Miljkovic</Text>
+          <Text>ID Number: {means}</Text>
         </View>
       </Page>
     </Document>
@@ -142,9 +157,22 @@ export default function Generate() {
           </div>
           <p id="element">{t("request", { name: fullName })}</p>
           <div className="mt-6 prose prose-blue prose-lg text-black mx-auto">
-            Here you can add your additional text:
-            <input type="text" name="" id="" />
-            <p>{t("request", { name: fullName })}</p>
+            <div>
+              <label for="comment" class="block text-sm font-medium text-black">
+                Add additional text to request
+              </label>
+              <div class="mt-1">
+                <textarea
+                  rows="4"
+                  name="comment"
+                  // ref={myElement}
+                  onChange={(event) => setElement(event.target.value)}
+                  id="comment"
+                  class="shadow-sm focus:ring-indigo-500 border-solid border-gray-500 border-2 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded"
+                ></textarea>
+              </div>
+            </div>
+            <br />
           </div>
         </div>
       </div>
@@ -153,7 +181,6 @@ export default function Generate() {
           <div className="bg-white">
             <div className="px-0 py-5 ">
               <h3 className="text-lg leading-6 font-medium text-black">
-
                 <button
                   type="button"
                   // onClick={toPdf}

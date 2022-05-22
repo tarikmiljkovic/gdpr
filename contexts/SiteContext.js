@@ -8,6 +8,7 @@ const SiteProvider = ({ children }) => {
   const [fullName, setFullName] = useState("");
   const [means, setMeans] = useState("");
   const [request, setRequest] = useState("");
+  const [element, setElement] = useState("");
 
   return (
     <SiteContext.Provider
