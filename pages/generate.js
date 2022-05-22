@@ -3,9 +3,8 @@ import React, { useRef, useContext, useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { StyleSheet, Font } from "@react-pdf/renderer";
-// import DynamicLangSwitcher from '../components/DynamicLangSwitcher';
-// import { SiteContext } from "../contexts/SiteContext";
+
+
 
 const DynamicLangSwitcher = dynamic(
   () => import("../components/LangSwitcher"),
@@ -23,11 +22,11 @@ import {
   Page,
   Text,
   View,
-  Font,
   Document,
   StyleSheet,
+  ReactPDF
 } from "@react-pdf/renderer";
-import ReactPDF from "@react-pdf/renderer";
+
 import { PDFViewer } from "@react-pdf/renderer";
 import * as ReactDOM from 'react-dom';
 
@@ -52,10 +51,6 @@ export default function Generate() {
 
   useEffect(() => {});
 
-
-
-
-
   const generatePDF = () => {
 
   };
@@ -77,12 +72,12 @@ export default function Generate() {
 
   // Create styles
 
-  // Font.register({ family: "Times New Roman", src: source });
+
 
   const styles = StyleSheet.create({
     page: {
       backgroundColor: "white",
-      fontFamily: "Times New Roman",
+
       fontSize: 10,
       padding: 30,
     },
