@@ -1,12 +1,3 @@
-// import { useEffect, useContext, useState } from "react";
-// import { SiteContext } from "../contexts/SiteContext";
-// import Link from "next/link";
-// import { useRouter } from "next/router";
-// // import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
-
-// import de from "../locales/de";
-// import en from "../locales/en";
-
 function Impressum() {
   return (
     <div className="py-16 xl:py-36 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">

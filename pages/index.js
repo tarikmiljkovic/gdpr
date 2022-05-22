@@ -1,19 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import React, { useRef } from "react";
-import { useEffect, useContext, useState } from "react";
-
+import React, { useRef, useEffect, useContext, useState } from "react";
+import dynamic from 'next/dynamic'
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Footer from '../components/Footer';
-import Terms from '../components/Terms';
 
-// import de from "../locales/de/requests";
-// import en from "../locales/en/requests";
+const Footer = dynamic(() => import("../components/Footer"), {
+  ssr: false,
+});
 
+const Terms = dynamic(() => import("../components/Terms"), { ssr: false });
 
 import { SiteContext } from "../contexts/SiteContext";
+
 import { data } from "autoprefixer";
 
 

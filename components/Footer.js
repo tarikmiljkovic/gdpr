@@ -2,16 +2,13 @@ import { useEffect, useContext, useState } from "react";
 import { SiteContext } from "../contexts/SiteContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
 
-// import de from "../locales/de/requests";
-// import en from "../locales/en/requests";
 
 function LangSwitcher({ requestJ, currentProjectIndex }) {
   let router = useRouter();
 
   const { locale } = router;
-  // const t = locale === "de" ? de : en;
+
 
 const navigation = {
   main: [
