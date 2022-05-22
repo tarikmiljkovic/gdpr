@@ -77,7 +77,7 @@ export default function Generate() {
 
   console.log(request);
 
-  const { t } = useTranslation("Right to Restrict Data Processing");
+  const { t } = useTranslation("Right to Access Personal Data");
 
   // Create styles
 
@@ -97,7 +97,7 @@ export default function Generate() {
   let address = `epunkt GmbH
   Universitätsring 8,
   1010 Wien`;
-  means = "A26187G";
+  // means = "A26187G";
 
 
   const MyDocument = () => (
@@ -120,7 +120,7 @@ export default function Generate() {
         </View>
         <View style={styles.section}>
           <Text>Kind Regards</Text>
-          <Text>Tarik Miljkovic</Text>
+          <Text>{fullName}</Text>
           <Text>ID Number: {means}</Text>
         </View>
       </Page>
@@ -155,6 +155,14 @@ export default function Generate() {
               value=
             /> */}
           </div>
+
+          <p>Reference: {t("title", { name: fullName })}</p>
+
+          <br />
+
+          <p>Dear: {address}</p>
+
+          <br />
           <p id="element">{t("request", { name: fullName })}</p>
           <div className="mt-6 prose prose-blue prose-lg text-black mx-auto">
             <div>
@@ -172,6 +180,9 @@ export default function Generate() {
                 ></textarea>
               </div>
             </div>
+            <p>{fullName}</p>
+            <p>{means}</p>
+
             <br />
           </div>
         </div>
