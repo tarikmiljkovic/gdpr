@@ -1,4 +1,4 @@
 {
-  "title": "Right to Access Personal Data {name} {{name}}",
-  "request": "With this text I claim my right to restriction of processing because the following applies: The accuracy of my data is contested by the data subject, for a period enabling the controller to verify the accuracy of the personal data. The processing is unlawful, and I oppose the erasure of the personal data and request the restriction of their use instead.  You no longer need the personal data for the purposes of the processing, but they are required by me for the establishment, exercise, or defense of legal claims.  I have objected to processing pursuant to§ 21(1) GDPR pending the verification whether the legitimate grounds of the controller override those of the data subject. "
+  "title": "Recht auf Datenübertragbarkeit gemäß Art 20 DSGVO",
+  "request": "Sehr geehrte/r {{Addressee}}!\n \n \nMit diesem Text mache ich mein Recht darauf geltend, meine personenbezogenen Daten, welche ich Ihnen zur Verfügung gestellt habe, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.\n \nEbenfalls wünsche ich, dass meine personenbezogenen Daten von Ihnen an einen anderen Verantwortlichen, namentlich: (             ) von Ihnen übertragen werden.\n"
 }
