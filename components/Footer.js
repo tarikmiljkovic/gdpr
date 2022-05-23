@@ -57,6 +57,9 @@ const navigation = {
           legal correctness and useability of our documents. Our documents were
           neither created by experts, nor by professional legal advisors, we do
           not advice for any legal action.
+
+          We recommend attaching a passport`s copy and sending the request from
+          the email adress your addressee has you linked with.
         </p>
         <p className="mt-4 text-center text-base text-gray-400">
           IT Team: Tarik Miljkovic, Elmi Abdullahi, Turgut Aydemir
