@@ -55,6 +55,7 @@ export default function Home() {
               <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
                 Create GDPR Request for your case
               </h2>
+              <a href="/Datela.rar" download>Download the App for offline use</a>
             </div>
             <div className="mt-8">
               <div>
