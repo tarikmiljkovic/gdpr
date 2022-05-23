@@ -165,6 +165,7 @@ export default function Home() {
                 </form>
                 <br /><br />
                 <a href="/Info_Ukr.pdf" download>Download General Information in Ukrainian </a><br /><br />
+                <a href="/Info_Serbian.pdf" download>Download General Information in Serbian </a><br /><br />
                 <a href="/21Ukr.pdf" download>Download Information for Right to Object in Ukrainian </a><br /><br />
                 <a href="/21Rus.pdf" download>Download Information for Right to Object in Russian </a>
               </div>
