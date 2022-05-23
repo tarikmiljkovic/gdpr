@@ -160,10 +160,10 @@ export default function Generate() {
 
           <br />
 
-          <p>Dear: {address}</p>
+          {/*<p>Dear: {address}</p>*/}
 
           <br />
-          <p id="element">{t("request", { name: fullName })}</p>
+          <pre id="element">{t("request", { name: fullName })}</pre>
           <div className="mt-6 prose prose-blue prose-lg text-black mx-auto">
             <div>
               <label for="comment" class="block text-sm font-medium text-black">
