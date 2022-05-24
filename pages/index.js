@@ -27,8 +27,9 @@ export default function Home() {
     const [fullName, setFullName] = useState("");
     const [means, setMeans] = useState("");
     const [request, setRequest] = useState("");
+    const [address, setAddress] = useState("");
 
-    console.log(fullName, means, request);
+    console.log(fullName, means, request, address);
 
     const names = [
       "Right to Rectification",
@@ -117,6 +118,30 @@ export default function Home() {
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                     </div>
+
+                  </div>
+
+<div className="space-y-1">
+                    <label
+                      htmlFor="text"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      {" "}
+                      Address{" "}
+                    </label>
+                    <div className="mt-1">
+                      <textarea
+                        id="address"
+                        name="address"
+                        type="textarea"
+                        value={data.means}
+                        onChange={(event) => setAddress(event.target.value)}
+                        autoComplete="current-password"
+                        // required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      />
+                    </div>
+
                   </div>
 
                   <div>
@@ -152,6 +177,7 @@ export default function Home() {
                             usersFullName: fullName,
                             usersMeans: means,
                             usersRequest: request,
+                            usersAddress: address,
                           },
 
                           // pathname: "/blog/[slug]",

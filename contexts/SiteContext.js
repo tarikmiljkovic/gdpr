@@ -9,10 +9,11 @@ const SiteProvider = ({ children }) => {
   const [means, setMeans] = useState("");
   const [request, setRequest] = useState("");
   const [element, setElement] = useState("");
+  const [address, setAddress] = useState("");
 
   return (
     <SiteContext.Provider
-      value={{fullName, setFullName, means, setMeans, request, setRequest}}
+      value={{fullName, setFullName, means, setMeans, request, setRequest, address, setAddress}}
     >
       {children}
     </SiteContext.Provider>

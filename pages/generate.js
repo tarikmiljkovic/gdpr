@@ -73,9 +73,10 @@ export default function Generate() {
   const [fullName, setFullName] = useState(query.usersFullName);
   let [means, setMeans] = useState(query.usersMeans);
   const [request, setRequest] = useState(query.usersRequest);
+  const [address, setAddress] = useState(query.usersAddress);
   // const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
 
-  console.log(request);
+  console.log("generate.js", address);
 
   const { t } = useTranslation("Right to Access Personal Data");
 
@@ -94,11 +95,6 @@ export default function Generate() {
     bold: { fontWeight: "700"},
   });
 
-  let address = `epunkt GmbH
-  Universitätsring 8,
-  1010 Wien`;
-  // means = "A26187G";
-
 
   const MyDocument = () => (
     <Document>
@@ -111,7 +107,7 @@ export default function Generate() {
           <Text style={styles.bold}>{address}</Text>
         </View>
         <View style={styles.section}>
-          <Text>{t("request", { name: fullName })}</Text>
+          <Text>{t("request", { name: fullName, fAddress: address })}</Text>
         </View>
         <View style={styles.section}>
           <Text>Also I would like to add:</Text>
@@ -163,10 +159,10 @@ export default function Generate() {
           {/*<p>Dear: {address}</p>*/}
 
           <br />
-          <pre id="element">{t("request", { name: fullName })}</pre>
+          <pre id="element">{t("request", { name: fullName, fAddress: address })}</pre>
           <div className="mt-6 prose prose-blue prose-lg text-black mx-auto">
             <div>
-              <label for="comment" class="block text-sm font-medium text-black">
+              <label htmlFor="comment" class="block text-sm font-medium text-black">
                 Add additional text to request
               </label>
               <div class="mt-1">
