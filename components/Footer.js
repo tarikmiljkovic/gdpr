@@ -65,7 +65,7 @@ const navigation = {
           IT Team: Tarik Miljkovic, Elmi Abdullahi, Turgut Aydemir
         </p>
         <p className="mt-0 text-center text-base text-gray-400">
-          Law Team: Julia Damian, Vasilje, Josef
+          Law Team: Julia Damian, Vasilije Skopelja, Josef
         </p>
       </div>
     </footer>
