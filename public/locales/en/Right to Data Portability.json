@@ -1,4 +1,4 @@
 {
   "title": "Right to data portability according to Art 20 GDPR",
-  "request": "Dear {{Addressee}}!\n \nWith this text I claim my right to receive the personal data concerning me which I have provided to you in a structured, commonly used, and machine-readable format\n \n\n \nI claim my right to have my data transmitted directly from you to another data controller, if it is technically feasible, namely:\n \n\n \n"
+  "request": "Dear {{address}}!\n \nWith this text I claim my right to receive the personal data concerning me which I have provided to you in a structured, commonly used, and machine-readable format\n \n\n \nI claim my right to have my data transmitted directly from you to another data controller, if it is technically feasible, namely:\n \n\n \n"
 }
