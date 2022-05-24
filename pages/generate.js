@@ -78,7 +78,7 @@ export default function Generate() {
 
   console.log("generate.js", address);
 
-  const { t } = useTranslation("Right to Access Personal Data");
+  const { t } = useTranslation(request);
 
   // Create styles
 
