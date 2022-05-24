@@ -1,8 +1,13 @@
 import dynamic from "next/dynamic";
 import React, { useRef, useContext, useEffect, useState } from "react";
 
+const Logo = dynamic(() => import("../components/Logo"), {
+  ssr: false,
+});
+
 import { useRouter } from "next/router";
 import Link from "next/link";
+
 
 
 
@@ -130,12 +135,13 @@ export default function Generate() {
           <DynamicLangSwitcher></DynamicLangSwitcher>
         </div>
         <div className="relative">
+          <Logo></Logo>
           <div className="text-lg max-w-prose ">
             <h1>
               <span className="block text-base text-center text-blue-600 font-semibold tracking-wide uppercase">
                 {/* {request} */}
               </span>
-              <span className="mt-2 block text-3xl text-left leading-8 font-extrabold tracking-tight text-black sm:text-4xl">
+              <span className="mt-2 block text-3xl text-left leading-8 font-extrabold tracking-tight text-black sm:text-3xl">
                 {/* {t("title", {name: fullName})} */}
                 Here is your generated document:
               </span>

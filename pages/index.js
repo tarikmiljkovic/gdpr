@@ -10,6 +10,10 @@ const Footer = dynamic(() => import("../components/Footer"), {
   ssr: false,
 });
 
+const Logo = dynamic(() => import("../components/Logo"), {
+  ssr: false,
+});
+
 const Terms = dynamic(() => import("../components/Terms"), { ssr: false });
 
 import { SiteContext } from "../contexts/SiteContext";
@@ -48,19 +52,8 @@ export default function Home() {
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-                   <Link
-                        href={{
-                          pathname: "/",
-                        }}>
-              <a>
-                <img
-                className="h-24 w-auto"
-                src="logo.png"
-                alt="Logo"
-              />
-              </a>
 
-              </Link>
+                   <Logo></Logo>
 
               <h2 className="mt-4 text-3xl font-extrabold text-gray-900">
                 Create GDPR Request for your case
