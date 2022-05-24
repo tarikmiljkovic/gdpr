@@ -4,18 +4,8 @@ import React, { useRef, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-
-
-const DynamicLangSwitcher = dynamic(
-  () => import("../components/LangSwitcher"),
-  {
-    ssr: false,
-  }
-);
-
-const DynamicSiteContext = dynamic(() => import("../contexts/SiteContext"), {
-  ssr: false,
-});
+import LangSwitcher from "../components/LangSwitcher";
+import { SiteContext } from "../contexts/SiteContext";
 
 import {
   PDFDownloadLink,
@@ -37,13 +27,17 @@ import { useTranslation } from "next-i18next";
 
 export default function Generate() {
 
+  let router = useRouter();
+  const { query } = useRouter();
+  const { locale } = router;
+
+  const [fullName, setFullName] = useState(query.usersFullName);
+  let [means, setMeans] = useState(query.usersMeans);
+  const [request, setRequest] = useState(query.usersRequest);
+  const [address, setAddress] = useState(query.usersAddress);
 
   const reference = useRef("");
-
-
-
   const [element, setElement] = useState("");
-
 
   const ref = useRef(null);
   const myElement = useRef(null);
@@ -58,31 +52,9 @@ export default function Generate() {
       ReactDOM.render(<App />, document.getElementById("root"));
   }
 
-  useEffect(() => {});
-
-  const generatePDF = () => {
-
-  };
-
-  let router = useRouter();
-  const { query } = useRouter();
-
-
-  const { locale } = router;
-
-  const [fullName, setFullName] = useState(query.usersFullName);
-  let [means, setMeans] = useState(query.usersMeans);
-  const [request, setRequest] = useState(query.usersRequest);
-  const [address, setAddress] = useState(query.usersAddress);
-  //const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
-
-
   const { t } = useTranslation(request);
 
   // Create styles
-
-
-
   const styles = StyleSheet.create({
     page: {
       backgroundColor: "white",
@@ -126,7 +98,7 @@ export default function Generate() {
     <>
       <div className="relative py-16 bg-white overflow-hidden px-4 sm:px-48 lg:px-72">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-          <DynamicLangSwitcher></DynamicLangSwitcher>
+          <LangSwitcher></LangSwitcher>
         </div>
         <div className="relative">
           <div className="text-lg max-w-prose ">

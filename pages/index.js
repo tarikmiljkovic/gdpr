@@ -6,17 +6,12 @@ import dynamic from 'next/dynamic'
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Footer = dynamic(() => import("../components/Footer"), {
-  ssr: false,
-});
+import Footer from "../components/Footer";
+import Logo from "../components/Logo";
+import Terms from "../components/Terms";
+// import { SiteContext } from "../contexts/SiteContext";
+import SiteContext from "../contexts/SiteContext";
 
-const Logo = dynamic(() => import("../components/Logo"), {
-  ssr: false,
-});
-
-const Terms = dynamic(() => import("../components/Terms"), { ssr: false });
-
-import { SiteContext } from "../contexts/SiteContext";
 
 import { data } from "autoprefixer";
 
@@ -24,27 +19,25 @@ import { data } from "autoprefixer";
 export default function Home() {
 
   let router = useRouter();
+  const { locale } = router;
 
-    const { locale } = router;
-    // const t = locale === "de" ? de : en;
+  const [fullName, setFullName] = useState("");
+  const [means, setMeans] = useState("");
+  const [request, setRequest] = useState("");
+  const [address, setAddress] = useState("");
 
-    const [fullName, setFullName] = useState("");
-    const [means, setMeans] = useState("");
-    const [request, setRequest] = useState("");
-    const [address, setAddress] = useState("");
+  console.log(fullName, means, request, address);
 
-    console.log(fullName, means, request, address);
+  const names = [
+    "Right to Rectification",
+    "Right to Access Personal Data",
+    "Right to Restrict Data Processing",
+    "Right to Object",
+    "Right to Data Portability",
+    "Right to Reject Automated Individual Decision-Making",
+  ];
 
-    const names = [
-      "Right to Rectification",
-      "Right to Access Personal Data",
-      "Right to Restrict Data Processing",
-      "Right to Object",
-      "Right to Data Portability",
-      "Right to Reject Automated Individual Decision-Making",
-    ];
-
-  const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
+  // const { typeOfRequest, setTypeOfRequest } = useContext(SiteContext);
 
   return (
     <div>
