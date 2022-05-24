@@ -49,11 +49,11 @@ export default function Home() {
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <img
-                className="h-12 w-auto"
-                src="https://camo.githubusercontent.com/3a515d1f34b388f2c1e09669fe4611d9d65a02602d54af0352fb0fbffbea48e2/68747470733a2f2f63646e2e737667706f726e2e636f6d2f6c6f676f732f6e6169766575692e737667"
+                className="h-24 w-auto"
+                src="logo.png"
                 alt="Logo"
               />
-              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+              <h2 className="mt-4 text-3xl font-extrabold text-gray-900">
                 Create GDPR Request for your case
               </h2>
               <a href="/Datela.rar" download>Download the App for offline use</a>
