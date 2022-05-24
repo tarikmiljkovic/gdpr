@@ -45,13 +45,14 @@ export default function Home() {
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-
-                   <Logo></Logo>
+              <Logo></Logo>
 
               <h2 className="mt-4 text-3xl font-extrabold text-gray-900">
                 Create GDPR Request for your case
               </h2>
-              <a href="/Datela.rar" download>Download the App for offline use</a>
+              <a href="/Datela.rar" download>
+                Download the App for offline use
+              </a>
             </div>
             <div className="mt-8">
               <div>
@@ -113,10 +114,9 @@ export default function Home() {
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                     </div>
-
                   </div>
 
-<div className="space-y-1">
+                  <div className="space-y-1">
                     <label
                       htmlFor="text"
                       className="block text-sm font-medium text-gray-700"
@@ -136,7 +136,6 @@ export default function Home() {
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                     </div>
-
                   </div>
 
                   <div>
@@ -161,34 +160,46 @@ export default function Home() {
 
                   <div className="flex items-center justify-between"></div>
                   <div>
-                    <button
-                      type="submit"
-                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    <Link
+                      href={{
+                        pathname: "/generate",
+                        query: {
+                          usersFullName: fullName,
+                          usersMeans: means,
+                          usersRequest: request,
+                          usersAddress: address,
+                        },
+                      }}
                     >
-                      <Link
-                        href={{
-                          pathname: "/generate",
-                          query: {
-                            usersFullName: fullName,
-                            usersMeans: means,
-                            usersRequest: request,
-                            usersAddress: address,
-                          },
-
-                          // pathname: "/blog/[slug]",
-                          // query: { slug: "my-post" },
-                        }}
+                      <button
+                        type="submit"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         <a>Create Document</a>
-                      </Link>
-                    </button>
+                      </button>
+                    </Link>
                   </div>
                 </form>
-                <br /><br />
-                <a href="/Info_Ukr.pdf" download>Download General Information in Ukrainian </a><br /><br />
-                <a href="/Info_Serbian.pdf" download>Download General Information in Serbian </a><br /><br />
-                <a href="/21Ukr.pdf" download>Download Information for Right to Object in Ukrainian </a><br /><br />
-                <a href="/21Rus.pdf" download>Download Information for Right to Object in Russian </a>
+                <br />
+                <br />
+                <a href="/Info_Ukr.pdf" download>
+                  Download General Information in Ukrainian{" "}
+                </a>
+                <br />
+                <br />
+                <a href="/Info_Serbian.pdf" download>
+                  Download General Information in Serbian{" "}
+                </a>
+                <br />
+                <br />
+                <a href="/21Ukr.pdf" download>
+                  Download Information for Right to Object in Ukrainian{" "}
+                </a>
+                <br />
+                <br />
+                <a href="/21Rus.pdf" download>
+                  Download Information for Right to Object in Russian{" "}
+                </a>
               </div>
             </div>
           </div>
